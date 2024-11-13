@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Força de Senha</title>
+</head>
+<body>
+    <script>
+        function capturarEntrada() {
+            // Captura a senha do usuário com prompt
+            let senha = prompt("Digite sua senha:");
+            if (senha) {
+                processarSenha(senha);
+            } else {
+                console.log("Nenhuma senha foi inserida.");
+            }
+        }
+
+        function processarSenha(senha) {
+            // Declara variáveis e inicia pontuação
+            let pontuacao = 0;
+
+            // Verifica critérios de pontuação
+            if (senha.length >= 8) pontuacao++;
+            if (/[A-Z]/.test(senha)) pontuacao++;
+            if (/[a-z]/.test(senha)) pontuacao++;
+            if (/[0-9]/.test(senha)) pontuacao++;
+            if (/[\W_]/.test(senha)) pontuacao++;
+
+            // Chama a função para mostrar a saída
+            mostrarResultado(pontuacao);
+        }
+
+        function mostrarResultado(pontuacao) {
+            // Define a força da senha
+            let resultado;
+            if (pontuacao <= 2) {
+                resultado = "Senha Fraca";
+            } else if (pontuacao === 3) {
+                resultado = "Senha Moderada";
+            } else if (pontuacao >= 4) {
+                resultado = "Senha Forte";
+            }
+            
+            // Exibe o resultado no console
+            console.log(`Força da senha: ${resultado}`);
+        }
+
+        // Inicia o processo ao carregar a página
+        capturarEntrada();
+    </script>
+</body>
+</html>
