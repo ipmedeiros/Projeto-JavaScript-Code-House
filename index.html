@@ -9,41 +9,34 @@
     <script>
         function capturarEntrada() {
             // Captura a senha do usuário com prompt
-            let senha = prompt("Digite sua senha:");
-            if (senha) {
-                processarSenha(senha);
-            } else {
-                console.log("Nenhuma senha foi inserida.");
-            }
+            const senha = prompt("Digite sua senha:") || "Nenhuma senha foi inserida.";
+            senha !== "Nenhuma senha foi inserida." ? processarSenha(senha) : console.log(senha);
         }
 
         function processarSenha(senha) {
-            // Declara variáveis e inicia pontuação
-            let pontuacao = 0;
-
-            // Verifica critérios de pontuação
-            if (senha.length >= 8) pontuacao++;
-            if (/[A-Z]/.test(senha)) pontuacao++;
-            if (/[a-z]/.test(senha)) pontuacao++;
-            if (/[0-9]/.test(senha)) pontuacao++;
-            if (/[\W_]/.test(senha)) pontuacao++;
+            // Verifica critérios de pontuação usando spread e AND lógico
+            const criterios = [
+                senha.length >= 8,
+                /[A-Z]/.test(senha),
+                /[a-z]/.test(senha),
+                /[0-9]/.test(senha),
+                /[\W_]/.test(senha),
+            ];
+            const pontuacao = criterios.filter(Boolean).length;
 
             // Chama a função para mostrar a saída
             mostrarResultado(pontuacao);
         }
 
         function mostrarResultado(pontuacao) {
-            // Define a força da senha
-            let resultado;
-            if (pontuacao <= 2) {
-                resultado = "Senha Fraca";
-            } else if (pontuacao === 3) {
-                resultado = "Senha Moderada";
-            } else if (pontuacao >= 4) {
-                resultado = "Senha Forte";
-            }
-            
-            // Exibe o resultado no console
+            // Define a força da senha com operador ternário
+            const resultado = pontuacao <= 2 
+                ? "Senha Fraca" 
+                : pontuacao === 3 
+                    ? "Senha Moderada" 
+                    : "Senha Forte";
+
+            // Exibe o resultado no console e alerta
             console.log(`Força da senha: ${resultado}`);
             alert(`Força da senha: ${resultado}`);
         }
