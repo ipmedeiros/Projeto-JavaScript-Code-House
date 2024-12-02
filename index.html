@@ -1,48 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Força de Senha</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificador de Força de Senha</title>
+  <link rel="stylesheet" href="CSS/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <script>
-        function capturarEntrada() {
-            // Captura a senha do usuário com prompt
-            const senha = prompt("Digite sua senha:") || "Nenhuma senha foi inserida.";
-            senha !== "Nenhuma senha foi inserida." ? processarSenha(senha) : console.log(senha);
-        }
-
-        function processarSenha(senha) {
-            // Verifica critérios de pontuação usando spread e AND lógico
-            const criterios = [
-                senha.length >= 8,
-                /[A-Z]/.test(senha),
-                /[a-z]/.test(senha),
-                /[0-9]/.test(senha),
-                /[\W_]/.test(senha),
-            ];
-            const pontuacao = criterios.filter(Boolean).length;
-
-            // Chama a função para mostrar a saída
-            mostrarResultado(pontuacao);
-        }
-
-        function mostrarResultado(pontuacao) {
-            // Define a força da senha com operador ternário
-            const resultado = pontuacao <= 2 
-                ? "Senha Fraca" 
-                : pontuacao === 3 
-                    ? "Senha Moderada" 
-                    : "Senha Forte";
-
-            // Exibe o resultado no console e alerta
-            console.log(`Força da senha: ${resultado}`);
-            alert(`Força da senha: ${resultado}`);
-        }
-
-        // Inicia o processo ao carregar a página
-        capturarEntrada();
-    </script>
+  <div class="container">
+    <h2>Saiba se a força está com você</h2>
+    <div class="inputArea">
+      <input type="password" placeholder="Senha" id="SuaSenha" />
+      <div class="show">
+        <i class="fas fa-eye"></i>
+      </div>
+    </div>
+    <div class="strengthMeter">
+      <div class="baby-yoda"></div>
+    </div>
+  </div>  
+  
 </body>
 </html>
