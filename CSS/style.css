@@ -12,7 +12,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: url(Imagens/fundo/fundo.jpeg) no-repeat center center fixed;
+  background: url(../Imagens/fundo/fundo.jpeg) no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -28,7 +28,6 @@ body {
   border-radius: 1px solid #111;
   gap: 10px;
   padding-bottom: 70px;
-
 }
 
 .container h2 {
@@ -91,14 +90,14 @@ body {
     drop-shadow(0 0 20px #18e605);
 }
 
-/* Baby Yoda icône sempre visível */
+/* Baby Yoda ícone sempre visível */
 .container .baby-yoda {
   position: absolute;
   bottom: -40px; /* Abaixo do medidor */
   left: 10px; /* Início no lado esquerdo */
   width: 40px;
   height: 40px;
-  background: url('Imagens/icones/icons8-baby-yoda.svg') no-repeat center;
+  background: url(../Imagens/icones/icons8-baby-yoda.svg) no-repeat center;
   background-size: contain;
   transition: all 0.5s ease; /* Animação para suavidade */
 }
@@ -137,7 +136,7 @@ body {
 }
 
 .container.moderada .strengthMeter::after {
-  content: "A força ta quase com você!";
+  content: "A força tá quase com você!";
   color: #eedc3d;
   filter: drop-shadow(0 0 5px #eedc3d);
 }
