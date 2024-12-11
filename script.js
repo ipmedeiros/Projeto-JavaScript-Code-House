@@ -15,7 +15,7 @@ let audioSenha = document.getElementById("audioSenha");
 let audioTocando = false; // Indica se o áudio já está tocando
 
 // Configuração inicial do volume fixo
-audioSenha.volume = 0.1; // Volume fixo em 30%
+audioSenha.volume = 0.1; // Volume fixo
 
 // Função para iniciar o áudio, se ainda não estiver tocando
 function iniciarAudio() {
