@@ -12,7 +12,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: url(/Imagens/fundo/fundo.jpeg) no-repeat center center fixed;
+  background: url(Imagens/fundo/fundo.jpeg) no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -98,7 +98,7 @@ body {
   left: 10px; /* Início no lado esquerdo */
   width: 40px;
   height: 40px;
-  background: url('/Imagens/icones/icons8-baby-yoda.svg') no-repeat center;
+  background: url('Imagens/icones/icons8-baby-yoda.svg') no-repeat center;
   background-size: contain;
   transition: all 0.5s ease; /* Animação para suavidade */
 }
