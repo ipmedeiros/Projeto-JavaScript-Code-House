@@ -15,12 +15,14 @@ body {
   background: url("https://ipmedeiros.github.io/Projeto-JavaScript-Code-House/Imagens/fundo/fundo.jpeg") 
               no-repeat center center fixed;
   background-size: cover;
+  padding: 10px;
 }
 
 .container {
   position: relative;
   width: 90%;
   max-width: 450px;
+  min-width: 300px;
   border-radius: 20px;
   padding: 30px;
   background: #333;
@@ -174,11 +176,6 @@ body {
 
 /* Media Queries para responsividade */
 @media (max-width: 768px) {
-  body {
-    padding: 10px;
-    background-size: cover;
-  }
-
   .container {
     padding: 20px;
     gap: 15px;
@@ -206,9 +203,13 @@ body {
 }
 
 @media (max-width: 350px) {
+  .container {
+    min-width: 280px;
+  }
+
   .container .strengthMeter::after {
     top: -25px;
-    left: 10px;
+    left: 5px;
     font-size: 0.7em;
   }
 }
