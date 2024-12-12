@@ -19,21 +19,23 @@ body {
 
 .container {
   position: relative;
-  width: 450px;
-  border-radius: 20px 20px 0 0;
+  width: 90%;
+  max-width: 450px;
+  border-radius: 20px;
   padding: 30px;
   background: #333;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  border-radius: 1px solid #111;
   gap: 10px;
   padding-bottom: 70px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .container h2 {
   color: #666;
   font-weight: 500;
+  text-align: center;
 }
 
 .container .inputArea {
@@ -50,6 +52,7 @@ body {
   padding: 10px;
   color: aliceblue;
   font-size: 1.1em;
+  border-radius: 5px;
 }
 
 .container .strengthMeter {
@@ -91,7 +94,7 @@ body {
     drop-shadow(0 0 20px #18e605);
 }
 
-/* Baby Yoda ícone sempre visível */
+/* Baby Yoda ícone responsivo */
 .container .baby-yoda {
   position: absolute;
   bottom: -40px;
@@ -104,23 +107,22 @@ body {
   transition: all 0.5s ease;
 }
 
-/* Configurações por força da senha */
 .container.fraca .baby-yoda {
-  left: 10px; /* Posição inicial para "fraca" */
-  transform: scale(0.8); /* Tamanho reduzido */
-  filter: drop-shadow(0 0 5px #f00); /* Cor vermelha */
+  left: 10px;
+  transform: scale(0.8);
+  filter: drop-shadow(0 0 5px #f00);
 }
 
 .container.moderada .baby-yoda {
-  left: 50%; /* Movido para o centro */
-  transform: translateX(-50%) scale(1); /* Ajusta para tamanho padrão */
-  filter: drop-shadow(0 0 5px #eedc3d); /* Cor amarela */
+  left: 50%;
+  transform: translateX(-50%) scale(1);
+  filter: drop-shadow(0 0 5px #eedc3d);
 }
 
 .container.forte .baby-yoda {
-  left: calc(100% - 50px); /* Movido para o final */
-  transform: scale(1.2); /* Tamanho maior */
-  filter: drop-shadow(0 0 5px #18e605); /* Cor verde */
+  left: calc(100% - 50px);
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 5px #18e605);
 }
 
 .container .strengthMeter::after {
@@ -132,7 +134,7 @@ body {
 }
 
 .container.fraca .strengthMeter::after {
-  content: "Que a força esteja com você!";
+  content: "A força não tá com você!";
   color: #f00;
   filter: drop-shadow(0 0 5px #f00);
 }
@@ -166,4 +168,26 @@ body {
 .show i {
   color: aliceblue;
   font-size: 1.5em;
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    background-size: cover;
+  }
+
+  .container {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .container .baby-yoda {
+    width: 30px;
+    height: 30px;
+  }
+
+  .show i {
+    font-size: 1.2em;
+  }
 }

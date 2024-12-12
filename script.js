@@ -1,11 +1,15 @@
 function Forca(senha) {
-  let i = 0;
-  if (senha.length > 6) i++;
-  if (senha.length >= 10) i++;
-  if (/[A-Z]/.test(senha)) i++;
-  if (/[0-9]/.test(senha)) i++;
-  if (/[A-Za-z0-9]/.test(senha)) i++;
-  return i;
+  let pontos = 0;
+
+  // Critérios de força
+  if (senha.length >= 12) pontos += 2; // Senhas com pelo menos 12 caracteres
+  if (/[A-Z]/.test(senha)) pontos += 1; // Pelo menos uma letra maiúscula
+  if (/[a-z]/.test(senha)) pontos += 1; // Pelo menos uma letra minúscula
+  if (/[0-9]/.test(senha)) pontos += 1; // Pelo menos um número
+  if (/[^A-Za-z0-9]/.test(senha)) pontos += 2; // Pelo menos um caractere especial
+  if (!/(.)\1{2,}/.test(senha)) pontos += 1; // Evitar repetições de caracteres
+
+  return pontos;
 }
 
 let container = document.querySelector(".container");
@@ -15,7 +19,7 @@ let audioSenha = document.getElementById("audioSenha");
 let audioTocando = false; // Indica se o áudio já está tocando
 
 // Configuração inicial do volume fixo
-audioSenha.volume = 0.1; // Volume fixo
+audioSenha.volume = 0.05; // Volume fixo
 
 // Função para iniciar o áudio, se ainda não estiver tocando
 function iniciarAudio() {
