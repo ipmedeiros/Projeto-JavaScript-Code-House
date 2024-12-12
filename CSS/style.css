@@ -131,6 +131,8 @@ body {
   left: 30px;
   transition: 0.5s;
   color: aliceblue;
+  font-size: 0.9em;
+  white-space: nowrap;
 }
 
 .container.fraca .strengthMeter::after {
@@ -189,5 +191,24 @@ body {
 
   .show i {
     font-size: 1.2em;
+  }
+}
+
+@media (max-width: 500px) {
+  .container .strengthMeter::after {
+    top: -35px;
+    font-size: 0.8em;
+  }
+
+  .container .strengthMeter {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 350px) {
+  .container .strengthMeter::after {
+    top: -25px;
+    left: 10px;
+    font-size: 0.7em;
   }
 }
