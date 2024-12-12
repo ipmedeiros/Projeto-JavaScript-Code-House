@@ -15,12 +15,13 @@ body {
   background: url("https://ipmedeiros.github.io/Projeto-JavaScript-Code-House/Imagens/fundo/fundo.jpeg") 
               no-repeat center center fixed;
   background-size: cover;
+  background-position: center;
   padding: 10px;
 }
 
 .container {
   position: relative;
-  width: 90%;
+  width: 100%;
   max-width: 450px;
   min-width: 300px;
   border-radius: 20px;
@@ -138,7 +139,7 @@ body {
 }
 
 .container.fraca .strengthMeter::after {
-  content: "A força não tá com você!";
+  content: "A força ainda não tá com você!";
   color: #f00;
   filter: drop-shadow(0 0 5px #f00);
 }
@@ -179,6 +180,7 @@ body {
   .container {
     padding: 20px;
     gap: 15px;
+    min-width: 0; /* Ajuste para garantir que o container ocupe 100% da largura */
   }
 
   .container .baby-yoda {
@@ -192,6 +194,10 @@ body {
 }
 
 @media (max-width: 500px) {
+  .container {
+    padding: 15px;
+  }
+
   .container .strengthMeter::after {
     top: -35px;
     font-size: 0.8em;
@@ -205,6 +211,7 @@ body {
 @media (max-width: 350px) {
   .container {
     min-width: 280px;
+    padding: 10px; /* Ajuste o padding para um layout mais apertado */
   }
 
   .container .strengthMeter::after {
